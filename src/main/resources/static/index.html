@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>M2P</title>
+
+	<!-- meta -->
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="payment, prepaid cards, micro finance solutions, meal cards, wallet solution,
+    				prepaid wallet, rupee change solution, digital payment">
+ 	<meta name="description" content="Payment/Wallet/Prepaid Card Solution Company">
+    
+
+	<!-- css -->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/ionicons.css">
+	<link rel="stylesheet" href="assets/css/owl.carousel.css">
+	<link rel="stylesheet" href="assets/css/owl.theme.css">
+	<link rel="stylesheet" href="assets/css/animate.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico" />
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<!-- fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic|Roboto+Condensed:300italic,400italic,700italic,400,300,700|Oxygen:400,300,700' rel='stylesheet'>
+
+	<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+</head>
+<script type="text/javascript">
+$(document).ready(function() {
+	
+	var name = $("#name").val();
+	var email = $("#email").val();
+	var phone = $("#phone").val();
+	var message = $("#message").val();
+	console.log(name+email+phone+message);
+	
+	function validate() {
+		
+		if (name === null || name === "" || name.trim()==="") {
+			
+		} else if(email === null || email === "" || email.trim() ==="") {
+			
+		} else if(phone === null || phone === "" || phone.trim() ==="") {
+			
+		}  else if(message === null || message === "" || message.trim() ==="") {
+			
+		}
+	}
+	
+	var data = {};
+	data.fromMailId = email;
+	data.mobileNo = phone;
+	data.queryBody = message;
+	data.name = name;
+	 $("#contact-submit").click(function(){
+		 $.ajax({
+             type: "POST",
+             url: "sendMail",
+             data: JSON.stringify(data),
+             contentType: "application/json; charset=utf-8",
+             crossDomain: true,
+             dataType: "json",
+             success: function (data, status, jqXHR) {
+
+                 $("#name").val("");
+             		$("#email").val("");
+             		$("#phone").val("");
+             		$("#message").val("");
+             		$("span.test:first").text("Your message sent successfully.");
+             },
+
+             error: function (jqXHR, status) {
+                 // error handler
+                 console.log(jqXHR);
+                 alert('fail' + status.code);
+             }
+          });
+	    });
+	
+	function postMessage() {
+	
+		var name = $("#name").val();
+		var email = $("#email").val();
+		var phone = $("#phone").val();
+		var message = $("#message").val();
+		console.log(name);
+		console.log(email);
+		console.log(phone);
+		console.log(message);
+		var data = {};
+		data.fromMailId = email;
+		data.mobileNo = phone;
+		data.queryBody = message;
+		data.name = name;
+		console.log("JSON "+JSON.stringify(data));
+		 $.ajax({
+             type: "POST",
+             url: "sendMail",
+             data: JSON.stringify(data),
+             contentType: "application/json; charset=utf-8",
+             crossDomain: true,
+             dataType: "json",
+             success: function (data, status, jqXHR) {
+
+                 alert(success);
+             },
+
+             error: function (jqXHR, status) {
+                 // error handler
+                 console.log(jqXHR);
+                 alert('fail' + status.code);
+             }
+          });
+	}
+});
+</script>
+<body id="home">
+
+	<!-- ****************************** Preloader ************************** -->
+
+	<div id="preloader"></div>
+
+	<!-- ****************************** Sidebar ************************** -->
+
+	<nav id="sidebar-wrapper">
+		<a id="menu-close" href="#" class="close-btn toggle"><i class="ion-ios-close-empty"></i></a>
+	    <ul class="sidebar-nav">
+		    <li><a href="#home">Home</a></li>
+			<li><a href="#features">Features</a></li>
+			<li><a href="#gallery">Gallery</a></li>
+			<li><a href="#team">Team</a></li>
+			<li><a href="#testimonial">Precious Reviews</a></li>
+			<li><a href="#contact">Contact us</a></li>
+	    </ul>
+	</nav>
+
+	<!-- ****************************** Header ************************** -->
+
+	<header class="sticky" id="header">
+		<section class="container">
+			<section class="row" id="logo_menu">
+				<section class="col-xs-6"><a class="logo" href="">M 2 P</a></section>
+				<section class="col-xs-6"><a id="menu-toggle" href="#" class="toggle wow rotateIn" data-wow-delay="1s"><i class="ion-navicon"></i></a></section>
+			</section>
+		</section>
+	</header>
+
+	<!-- ****************************** Banner ************************** -->
+
+
+	<section id="banner" >
+		<section class="container">
+			<a class="slidedown wow animated zoomIn" data-wow-delay="2s" href="#features"><i class="ion-ios-download-outline"></i></a>
+			<section class="row">
+				<div class="col-md-6">
+					<div class="headings">
+						<h1 class="wow animated fadeInDown">YAP</h1>
+						<p class="wow animated fadeInLeft">YAP is India’s first Payment as a Service Platform that connects Financial Institutions, Businesses, Banks, Payment Networks and Merchants to create a truly interoperable payment platform. </p>
+						<!-- <div class="row">
+							<div class="col-xs-6 col-sm-6 col-md-5">
+								<div>
+									<a href="#" class="polo-btn store wow animated bounceInUp"><i class="ion-social-android"></i> Play Store</a>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-6 col-md-5">
+								<div>
+									<a href="#" class="polo-btn store wow animated bounceInUp"><i class="ion-social-apple"></i> App Store</a>
+								</div>
+							</div>
+						</div> -->
+					</div>
+				</div>
+				<div class="col-md-6 hidden-xs hidden-sm">
+					<div class="hand-container">
+					<img class="iphone-hand img_res wow animated bounceInUp" data-wow-duration="1.2s" src="assets/img/m2p_text.png"></img>
+					<div class="clearfix"></div>
+					</div>
+				</div>
+			</section>
+		</section>
+	</section>
+	<section id="features" class="block">
+		<section class="container">
+			<section class="row">
+				<div class="title-box"><h1 class="block-title wow animated rollIn">
+				<span class="bb-top-left"></span>
+				<span class="bb-bottom-left"></span>
+				Features
+				<span class="bb-top-right"></span>
+				<span class="bb-bottom-right"></span>
+				</h1></div>
+			</section>
+			
+			<section class="row">
+				<div class="col-sm-6 col-md-4">
+					<div class="feature-box wow animated flipInX" data-wow-delay="0.3s">
+						<i class="ion-ios-locked-outline" style="color:#9b59b6;"></i>
+<!-- 						<img src="assets/img/k.png" class="img_res wow animated zoomIn">
+ -->						<h2>Bank Grade</h2>
+						<p>Secure, reliable payment platform</p>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4">
+					<div class="feature-box wow animated flipInX" data-wow-delay="0.3s">
+						<i class="ion-flash" style="color:#d35400;"></i>
+						<h2>Integrate in a jiffy</h2>
+						<p>Plug and play!, quite literally, Meet and greet to market in under 24 hours.</p>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4">
+					<div class="feature-box wow animated flipInX" data-wow-delay="0.3s">
+						<i class="ion-nuclear" style="color:#00ceb8;"></i>
+						<h2>Restful</h2>
+						<p>Open platform, Bundle of efficient Restful API’s.<br /><br /></p>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4">
+					<div class="feature-box wow animated flipInX" data-wow-delay="0.6s">
+						<i class="ion-ios-browsers-outline" style="color:#c0392b;"></i>
+						<h2>Truly agnostic</h2>
+						<p>A la carte of Card, Wallets, Channels, platforms, Hardware, Operating systems.</p>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4">
+					<div class="feature-box wow animated flipInX" data-wow-delay="0.6s">
+						<i class="ion-ios-loop" style="color:#27ae60;"></i>
+						<h2>Elastic</h2>
+						<p>  Super scalable platform. Zero to a million customers, all in a single day, .</p>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4">
+					<div class="feature-box wow animated flipInX" data-wow-delay="0.6s">
+						<i class="ion-ios-glasses" style="color:#2c3e50;"></i>
+						<h2>VAS</h2>
+						<p>Supports all Recharges, Vouchers, Money transfers, P2P, Bill payments et all.</p>
+					</div>
+				</div>
+			</section>
+			<div class="clearfix"></div>
+		</section>
+	</section>
+
+	<!-- ****************************** Gallery Section ************************** -->
+
+	<section id="gallery" class="block">
+		<section class="container">
+			<section class="row">
+				<div class="title-box" style="color:#fff;"><h1 class="block-title wow animated rollIn">
+				<span class="bb-top-left" style="border-color: #fff; "></span>
+				<span class="bb-bottom-left" style="border-color: #fff; "></span>
+				Gallery
+				<span class="bb-top-right" style="border-color: #fff; "></span>
+				<span class="bb-bottom-right" style="border-color: #fff; "></span>
+				</h1></div>
+			</section>
+			<section class="row">
+				<div class="col-xs-12">
+					<div id="screenshots" class="owl-carousel owl-theme">
+					  <div class="item"><img src="assets/img/oynk.png" class="img_res wow animated zoomIn"></div>
+					  <div class="item"><img src="assets/img/oynkmerchant.png" class="img_res wow animated zoomIn"></div>
+					  <div class="item"><img src="assets/img/cardbanners.png" class="img_res wow animated zoomIn"></div>
+					  <div class="item"><img src="assets/img/yap_home.png" class="img_res wow animated zoomIn"></div>
+					  <div class="item"><img src="assets/img/iifl_home.png" class="img_res wow animated zoomIn"></div>
+					</div>
+					 <div class="customNavigation">
+					  <a class="btn prev gallery-nav wow animated bounceInLeft"><i class="ion-ios-arrow-left"></i></a> 
+					  <a class="btn next gallery-nav wow animated bounceInRight"><i class="ion-ios-arrow-right"></i></a>
+					</div>
+				</div>
+			</section>
+		</section>
+	</section>
+
+	<!-- ****************************** Team Section ************************** -->
+
+	<section id="team" class="block">
+		<section class="container">
+			<section class="row">
+				<div class="col-md-12">
+					<div class="title-box">
+						<h1 class="block-title wow animated rollIn">
+							<span class="bb-top-left"></span>
+							<span class="bb-bottom-left"></span>
+							Team
+							<span class="bb-top-right"></span>
+							<span class="bb-bottom-right"></span>
+						</h1>
+					</div>
+				</div>
+			</section>
+			<section class="row">
+				<section class="col-md-3 col-sm-6">
+					<div class="team-member wow animated fadeIn" data-wow-delay=="0.3s">
+						<img src="assets/img/madhu-profile.jpg" class="img_res team-pic">
+						<h2 class="wow animated fadeInDown" data-wow-delay=="0.7s">Madhusudanan R</h2>
+						<p class="wow animated fadeIn" data-wow-delay=="0.7s">Founder</p>
+						<ul class="team-social">
+							<li class="wow animated fadeInLeft facebook"><a href="https://www.facebook.com/onlymadhu" target="_blank"><i class="ion-social-facebook"></i></a></li>
+							<li class="wow animated fadeInLeft linkedin"><a href="https://in.linkedin.com/in/madhusudanan-r-82178b7" target="_blank"><i class="ion-social-linkedin"></i></a></li>
+						</ul>
+					</div>
+				</section>
+				<section class="col-md-3 col-sm-6">
+					<div class="team-member wow animated fadeIn" data-wow-delay=="0.3s">
+						<img src="assets/img/muthu-profile.jpg" class="img_res team-pic">
+						<h2 class="wow animated fadeInDown" data-wow-delay=="0.7s">Muthukumar A</h2>
+						<p class="wow animated fadeIn" data-wow-delay=="0.7s">Co-Founder</p>
+						<ul class="team-social">
+							<li class="wow animated fadeInLeft linkedin"><a href="https://in.linkedin.com/in/muthuayya" target="_blank"><i class="ion-social-linkedin"></i></a></li>
+						</ul>
+					</div>
+				</section>
+				<section class="col-md-3 col-sm-6">
+					<div class="team-member wow animated fadeIn" data-wow-delay=="0.3s">
+						<img src="assets/img/prabhu-profile.jpg" class="img_res team-pic">
+						<h2 class="wow animated fadeInDown" data-wow-delay=="0.7s">Prabhu R</h2>
+						<p class="wow animated fadeIn" data-wow-delay=="0.7s">Co-Founder</p>
+						<ul class="team-social">
+							<li class="wow animated fadeInLeft facebook"><a href="https://www.facebook.com/rprabhu007" target="_blank"><i class="ion-social-facebook"></i></a></li>
+							<li class="wow animated fadeInLeft linkedin"><a href="https://www.linkedin.com/in/prabhu-rangarajan-187109a4" target="_blank"><i class="ion-social-linkedin"></i></a></li>
+						</ul>
+					</div>
+				</section>
+				<section class="col-md-3 col-sm-6">
+					<div class="team-member wow animated fadeIn" data-wow-delay=="0.3s">
+							<img src="assets/img/raveendhrun-profile1.jpg" class="img_res team-pic">
+							<h2 class="wow animated fadeInDown" data-wow-delay=="0.7s">Raveendhrun S A</h2>
+							<p class="wow animated fadeIn" data-wow-delay=="0.7s">Advisor</p>
+							<ul class="team-social">
+								<li class="wow animated fadeInLeft linkedin"><a href="https://www.linkedin.com/in/raveendhrun" target="_blank"><i class="ion-social-linkedin"></i></a></li>
+							</ul>
+						</div>
+				</section>
+			</section>
+			<section class="row">
+				<section class="col-md-3 col-sm-6">
+					<div class="team-member wow animated fadeIn" data-wow-delay=="0.3s">
+						<img src="assets/img/sriram-profile.jpg" class="img_res team-pic">
+						<h2 class="wow animated fadeInDown" data-wow-delay=="0.7s">Sriram KS</h2>
+						<p class="wow animated fadeIn" data-wow-delay=="0.7s">Chief Architect</p>
+						<ul class="team-social">
+							<li class="wow animated fadeInLeft facebook"><a href="https://facebook.com/ks.sriram" target="_blank"><i class="ion-social-facebook"></i></a></li>
+							<li class="wow animated fadeInLeft linkedin"><a href="https://www.linkedin.com/in/kssriram" target="_blank"><i class="ion-social-linkedin"></i></a></li>
+						</ul>
+					</div>
+				</section>
+				<section class="col-md-3 col-sm-6">
+					<div class="team-member wow animated fadeIn" data-wow-delay=="0.3s">
+						<img src="assets/img/kannan-profile.jpg" class="img_res team-pic">
+						<h2 class="wow animated fadeInDown" data-wow-delay=="0.7s">Kannan M</h2>
+						<p class="wow animated fadeIn" data-wow-delay=="0.7s">Chief Architect</p>
+						<ul class="team-social">
+							<li class="wow animated fadeInLeft facebook"><a href="https://www.facebook.com/kannanm" target="_blank"><i class="ion-social-facebook"></i></a></li>
+							<li class="wow animated fadeInLeft linkedin"><a href="https://www.linkedin.com/in/kannan-murali-16139b9" target="_blank"><i class="ion-social-linkedin"></i></a></li>
+						</ul>
+					</div>
+				</section>
+				<section class="col-md-3 col-sm-6">
+					<div class="team-member wow animated fadeIn" data-wow-delay=="0.3s">
+						<img src="assets/img/govind1.jpg" class="img_res team-pic">
+						<h2 class="wow animated fadeInDown" data-wow-delay=="0.7s">Govindarajan R</h2>
+						<p class="wow animated fadeIn" data-wow-delay=="0.7s">AVP-Operations</p>
+						<ul class="team-social">
+							<li class="wow animated fadeInLeft facebook"><a href="https://www.facebook.com/govindharajanr" target="_blank"><i class="ion-social-facebook"></i></a></li>
+						</ul>
+					</div>
+				</section>
+				<section class="col-md-3 col-sm-6">
+					<div class="team-member wow animated fadeIn" data-wow-delay=="0.3s">
+						<img src="assets/img/senthil-profile.jpg" class="img_res team-pic">
+						<h2 class="wow animated fadeInDown" data-wow-delay=="0.7s">Senthilkumar S</h2>
+						<p class="wow animated fadeIn" data-wow-delay=="0.7s">Architect</p>
+						<ul class="team-social">
+							<li class="wow animated fadeInLeft linkedin"><a href="https://in.linkedin.com/in/senthilkumar-s-76bb5618" target="_blank"><i class="ion-social-linkedin"></i></a></li>
+						</ul>
+					</div>
+				</section>
+			</section>
+		</section>
+	</section>
+
+	<!-- ****************************** Testimonial ************************** -->
+
+	<section id="testimonial" class="block">
+		<section class="container">
+			<section class="row">
+				<div class="title-box"><h1 class="block-title wow animated rollIn">
+				<span class="bb-top-left"></span>
+				<span class="bb-bottom-left"></span>
+				Precious Reviews
+				<span class="bb-top-right"></span>
+				<span class="bb-bottom-right"></span>
+				</h1></div>
+			</section>
+		</section>
+		<section class="container">
+			<section class="row">
+				<section class="col-xs-12">
+					<div id="review" class="owl-carousel owl-theme">
+						<div class="item">
+							<div class="row">
+								<div class="col-sm-4 col-sm-offset-1">
+									<div class="client-pic"><img class="img_res" src="assets/img/damodar-profile.jpeg"></div>
+									<p class="review-star">
+										<i class="ion-ios-star"></i>
+										<i class="ion-ios-star"></i>
+										<i class="ion-ios-star"></i>
+										<i class="ion-ios-star"></i>
+										<i class="ion-ios-star"></i>
+									</p>
+								</div>
+								<div class="col-sm-6">
+									<p class="review-desc">
+										In an era of hackathons where hacks in a day or two is the norm, We have had products launches in a matter of days, the execution bias that the M2P team demonstrates every time is infectious. 
+									</p>
+									<p class="client-name">
+										Damodar Agarwal	<br/> Head - Alternate Channels <br/>& Retail Securitisation, DCB Bank
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="row">
+								<div class="col-sm-4 col-sm-offset-1">
+									<div class="client-pic"><img class="img_res" src="assets/img/client-one.png"></div>
+									<p class="review-star">
+										<i class="ion-ios-star"></i>
+										<i class="ion-ios-star"></i>
+										<i class="ion-ios-star"></i>
+										<i class="ion-ios-star"></i>
+										<i class="ion-ios-star"></i>
+									</p>
+								</div>
+								<div class="col-sm-6">
+									<p class="review-desc">
+										 REVIEW REVIEW REVIEW
+									</p>
+									<p class="client-name">
+										Srinivas Peddada<br />
+										Executive Vice President & Chief Information Officer at SKS Microfinance Limited
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="row">
+								<div class="col-sm-4 col-sm-offset-1">
+									<div class="client-pic"><img class="img_res" src="assets/img/client-one.png"></div>
+									<p class="review-star">
+										<i class="ion-ios-star"></i>
+										<i class="ion-ios-star"></i>
+										<i class="ion-ios-star"></i>
+										<i class="ion-ios-star"></i>
+										<i class="ion-ios-star-outline"></i>
+									</p>
+								</div>
+								<div class="col-sm-6">
+									<p class="review-desc">
+										Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+										tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+										quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+									</p>
+									<p class="client-name">
+										Shahjahan Jewel
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="row">
+								<div class="col-sm-4 col-sm-offset-1">
+									<div class="client-pic"><img class="img_res" src="assets/img/client-one.png"></div> 
+									<p class="review-star">
+										<i class="ion-ios-star"></i>
+										<i class="ion-ios-star"></i>
+										<i class="ion-ios-star"></i>
+										<i class="ion-ios-star"></i>
+										<i class="ion-ios-star-outline"></i>
+									</p>
+								</div>
+								<div class="col-sm-6">
+									<p class="review-desc">
+										Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+										tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+										quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+									</p>
+									<p class="client-name">
+										Shahjahan Jewel
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</section>
+		</section>
+	</section>
+
+	
+	<!-- ****************************** Contact Section ************************** -->
+
+	<section id="contact">
+			<section class="container contact-wrap">
+				<section class="row">
+					<div class="title-box"><h1 class="block-title wow animated rollIn">
+					<span class="bb-top-left"></span>
+					<span class="bb-bottom-left"></span>
+					Contact Us
+					<span class="bb-top-right"></span>
+					<span class="bb-bottom-right"></span>
+					</h1></div>
+				</section>
+			</section>
+			<section class="address">
+				<div class="container">
+					<div class="col-sm-12">
+						<ul class="address-list">
+							<li><i class="ion-ios-location" style="background-color: rgb(255, 102, 0);"></i> <span>M2P Solutions Pvt Ltd<br />No 66, 28th Street <br />Thillai Ganga Nagar, Chennai - 600061<br /> </span></li>
+							<li><i class="ion-ios-telephone" style="background-color: #63cfea;"></i> <span>+91-44-43554830</span></li>
+							<li><i class="ion-email" style="background-color: #6ecba9;"></i> <span>connect@m2p.in</span></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+			<section class="mailbox">
+				<div class="container">
+					<div class="col-sm-12">
+						<form name="sentMessage" id="contactForm">
+	                        <div class="row">
+	                            <div class="col-md-6">
+	                                <div class="form-group">
+	                                    <input type="text" class="form-control" placeholder="Your Name *" id="name" required data-validation-required-message="Please enter your name.">
+	                                    <p class="help-block text-danger"></p>
+	                                </div>
+	                                <div class="form-group">
+	                                    <input type="email" class="form-control" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address.">
+	                                    <p class="help-block text-danger"></p>
+	                                </div>
+	                                <div class="form-group">
+	                                    <input type="tel" class="form-control" placeholder="Your Phone *" id="phone" required data-validation-required-message="Please enter your phone number.">
+	                                    <p class="help-block text-danger"></p>
+	                                </div>
+	                                <div id="success">
+	                                		<span class="test"></span>
+	                            	</div>
+	                            </div>
+	                            <div class="col-md-6">
+	                                <div class="form-group">
+	                                    <textarea class="form-control" placeholder="Your Message *" id="message" required data-validation-required-message="Please enter a message."></textarea>
+	                                    <p class="help-block text-danger"></p>
+		                                <button type="button" id="contact-submit" name="contact-submit" class="polo-btn contact-submit"><i class="ion-paper-airplane"></i></button>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </form>
+					</div>
+				</div>
+			</section>
+			<div class="clearfix"></div>
+		</section>
+
+		<!-- ****************************** Footer ************************** -->
+
+		<section id="footer">
+			<section class="container">
+				<section class="row">
+					<!-- <div class="col-sm-6">
+						<span>Terms & Conditions</span>
+						<h1 class="footer-logo">
+							<a href="#">M2P</a>
+						</h1>
+					</div> -->
+					<div class="col-sm-6">
+						<p class="copyright">All &copy; Copyright Reserved 2015</p>
+					</div>
+				</section>
+			</section>
+		</section>
+
+
+	<!-- All the scripts -->
+
+	<script src="assets/js/jquery-2.1.3.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/wow.min.js"></script>
+	<script src="assets/js/owl.carousel.js"></script>
+	<script src="assets/js/script.js"></script>
+	
+</body>
+</html>
